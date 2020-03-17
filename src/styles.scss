@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "~animate.css/animate.min.css";
+
+$primary-color: rgb(179, 114, 49);
+$primary-color-hover: #b1c522;
+
+@media(max-width:768px){
+  body { 
+    margin-top: 50px; 
+  }
+}
+
+.mb{
+  margin-bottom: 50px;
+}
+
+.mb{
+  margin-top: 50px;
+}
+
+.mv{
+  margin-top: 50px ;
+  margin-bottom: 50px;
+}
+
+.mb-sm{
+  margin-bottom: 25px;
+}
+
+a {
+  color: black
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+hr.full{
+  width: 25%;
+}
+
+li {
+  display: inline-block;
+  padding: 0;
+  margin: 0
+}
+
+.navbar{
+  font-size: 13px;
+}
+
+.active {
+  color: $primary-color;
+}
+
+.list-group-item.active {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-primary:hover {
+  background-color: $primary-color-hover;
+  border-color: $primary-color-hover;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.form-control:focus {
+  border-color: $primary-color;
+}
+
+input:active, input:visited, input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+*:active, *:visited, *:enabled, *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+ul {
+  margin:0;
+  padding: 0;
+}
+
+// for animate on scroll
+.animated {
+  visibility: visible !important;
+}
+.hide-on-init {
+  visibility: hidden;
+}

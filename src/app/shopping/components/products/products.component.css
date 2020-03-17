@@ -1,0 +1,11 @@
+.products-wrapper{
+    padding-top: 20px;
+}
+
+@media(max-width:576px){
+.product-wrapper{
+    width:70%;
+    margin:auto;
+    min-width: 250px;
+}
+}

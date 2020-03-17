@@ -1,0 +1,80 @@
+/* pricing */
+.pricing{
+    height: 550px;
+}
+
+.background-content h2{
+    font-size: 4.5em;
+    position: relative;
+    top: 41%;
+    width: 100%;
+    color: white;
+}
+
+.background-content span{
+    border-bottom: 8px solid white;
+}
+
+.pricing.background-content{
+    background: url('/assets/img/pricing.jpg') no-repeat center center; 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.text-content.container {
+    margin-top: 65px;
+}
+
+.portfolio h2{
+padding: 8px 0;
+background: rgba(211, 15, 34, 1);
+}
+
+.filter-list{
+  margin-bottom: 30px;
+}
+
+li.item{
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+li.item:hover{
+  cursor: pointer;
+}
+
+.filter-list li {
+  font-weight: bold;
+  color: black;
+  padding: 7px 5px;
+  margin-right: 15px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+@media(max-width: 550px){  
+.filter-list li {
+  font-weight: bold;
+  color: black;
+  padding: 6px 1px;
+  margin-right: 10px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+}
+
+.filter-list li.active {
+  border-bottom: 1px solid black;
+}
+
+img{
+  max-width: 100%;
+}
+
+@media(max-width: 350px){
+  .background-content h2{
+    font-size: 3em;
+  }
+
+}

@@ -1,0 +1,239 @@
+<section class="navbar-wrapper d-none d-md-block">
+  <nav class="navbar navbar-expand" [class.fixed-top]="navTop">
+
+    <div *ngIf="navTop" class="cat-wrapper">
+      <button id="catItem" class="btn-cat" (click) ="toggle()">
+        CATEGORIES
+        <i *ngIf="collapse"  class="fa fa-angle-down"></i>
+        <i *ngIf="!collapse" class="fa fa-angle-up"></i>
+      </button>
+
+      <div *ngIf="!collapse" class="cat-menu">
+        <ul id="catExpand">
+          <li routerLink="/products" class="cat-item"> 
+            <a> All</a>
+            <i class="fa fa-angle-right"></i>
+            <hr> 
+          </li>
+          
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Breakfast'}"
+          class="cat-item "> 
+            <a>Breakfast</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+          
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Desert'}"
+          class="cat-item "> 
+            <a>Desert</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Lunch'}"
+          class="cat-item "> 
+            <a>Lunch</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Salad'}"
+          class="cat-item "> 
+            <a>Salad</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Soups'}"
+          class="cat-item "> 
+            <a>Soups</a> 
+            <i class="fa fa-angle-right"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <a class="navbar-brand" [class.active]="home" routerLink='/'>HOME</a>
+
+      <a class="navbar-item" routerLinkActive="active" routerLink='/products'>SHOP</a>
+
+      <a class="navbar-item" routerLinkActive="active" routerLink='/contact'>CONTACT US</a>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li *ngIf="cart$ | async as cart">
+            <a *ngIf="navTop" class="nav-link shopping-cart" routerLink='/shopping-cart'>
+              <i class="fa fa-shopping-cart"></i>
+              <span class="badge badge-warning badge-pill">
+                {{cart.totalItemsCount}}
+              </span>
+            </a>
+          </li>
+
+          <ng-template #anonymousUser>
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-user"></i>
+                LOGIN</a>
+
+              <div ngbDropdownMenu class="dropdown-menu login" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link" routerLink='login'>
+                  <i class="fa fa-user"></i> LOGIN</a>
+                <a class="nav-link" routerLink='signup'>
+                  <i class="fa fa-user-plus"></i> CREATE AN ACCOUNT</a>
+              </div>
+            </li>
+
+          </ng-template>
+          <li *ngIf="appUser; else anonymousUser" ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{appUser.name}}</a>
+
+            <div ngbDropdownMenu class=" dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <a ngbDropdownItem class="dropdown-item" routerLink='my-orders'>My Orders</a>
+
+              <ng-container *ngIf="appUser.isAdmin">
+                <a ngbDropdownItem class="dropdown-item" routerLink='admin/orders'>Manage Orders</a>
+                <a ngbDropdownItem class="dropdown-item" routerLink='admin/products'>Manage Products</a>
+              </ng-container>
+
+              <a (click)="logout()" ngbDropdownItem class="dropdown-item" routerLink='logout'>
+                Log Out
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="img col-md-7">
+        <img class="img-fluid rounded-circle" src="assets/img/karim.jpg" alt="">
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col details">
+            <p class="contact">Call Us: 01123456789 </p>
+            <span class="dating">Sunday-Thursday From 9AM To 9PM </span>
+          </div>
+          <div class="col">
+            <a class="nav-link shopping-cart" routerLink='shopping-cart'>
+              <i class="fa fa-shopping-cart"></i>
+              <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+                {{cart.totalItemsCount}}
+              </span>
+              SHOPPING CART
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="navbar-small-wrapper d-md-none">
+  <div *ngIf="!collapse" class="overlay"></div>
+
+  <div class="navbar-small">
+    <ul>
+      <li class="cat-wrapper">
+      <button id="catItem" class="btn-cat" (click) ="toggle()">
+        CATEGORIES
+        <i   *ngIf="collapse"  class="fa fa-angle-down"></i>
+        <i  *ngIf="!collapse" class="fa fa-angle-up"></i>
+      </button>
+      
+      <div *ngIf="!collapse" class="cat-menu">
+        <ul id="catExpand">
+          <li routerLink="/products" class="cat-item"> 
+            <a> All</a>
+            <i class="fa fa-angle-right"></i>
+            <hr> 
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Breakfast'}"
+          class="cat-item "> 
+            <a>Breakfast</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+          
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Desert'}"
+          class="cat-item "> 
+            <a>Desert</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Lunch'}"
+          class="cat-item "> 
+            <a>Lunch</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Salad'}"
+          class="cat-item "> 
+            <a>Salad</a>
+            <i class="fa fa-angle-right"></i>
+            <hr>
+          </li>
+
+          <li routerLink="/products" 
+          [queryParams] = "{category: 'Soups'}"
+          class="cat-item "> 
+            <a>Soups</a> 
+            <i class="fa fa-angle-right"></i>
+          </li>
+        </ul>
+      </div>
+    </li>
+      <li class="brand-small mr-auto">  
+        <a routerLink="/">
+          HOME
+        </a> 
+      </li>
+
+      <li *ngIf="cart$ | async as cart">
+        <a class="nav-link shopping-cart" routerLink='/shopping-cart'>
+          <i class="fa fa-shopping-cart"></i>
+          <span class="badge badge-warning badge-pill">
+            {{cart.totalItemsCount}}
+          </span>
+        </a>
+      </li>
+
+      <li class="icon">
+        <i id="navIcon"
+         *ngIf="navCollapse" (click)="navToggle()" class="fa fa-bars"></i>
+        <i id="navIcon" *ngIf="!navCollapse" (click)="navToggle()" class="fa fa-times-circle"> </i>
+      </li>
+    
+      <ul id="navExpand" [class.collapse]="navCollapse"    class="navbar-list-small">
+          <li class="text-center d-block"><a routerLink="/">HOME</a></li><hr>
+          <li class="text-center d-block"><a routerLink="/products">SHOP</a></li><hr>
+          <li class="text-center d-block"><a routerLink="/login">LOGIN</a></li><hr>
+          <li class="text-center d-block"><a routerLink="/signup">SIGN UP</a></li>
+        </ul>
+    
+    </ul>
+    
+  </div>
+</section>

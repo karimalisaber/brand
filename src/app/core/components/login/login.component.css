@@ -1,0 +1,49 @@
+.login-wrapper{
+    border: 1px solid #e9e7e7;
+    padding: 25px;
+    height: 380px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 6px rgba(57,73,76,.35);
+}
+
+h2{
+    margin-bottom: 25px;
+}
+
+h4{
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0 0 14px 0;
+    font-weight: 500;
+}
+
+label{
+    font-size: 14px;
+    color: #191919;
+    font-family: "Hind", sans-serif;
+    font-weight: 500;
+    padding-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+p{
+    margin: 10px 0;
+    opacity: .7;
+    font-size: 15px;
+}
+
+.btn-new{ 
+    background: transparent;
+    color: #2879fe;
+    border: 2px solid #2879fe;
+    height: 40px;
+    margin-top: 25px;
+    padding-left: 29px;
+    padding-right: 29px;
+    transition: all .5s;
+}
+
+.btn-new:hover{
+  background-color: blue;
+  color: white;
+}

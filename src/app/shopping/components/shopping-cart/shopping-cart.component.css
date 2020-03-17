@@ -1,0 +1,21 @@
+.thumbnail { 
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-size: cover;
+}
+  
+.card { 
+  margin-bottom: 80px;
+}
+
+@media(max-width: 400px){
+  table{
+    margin: 0;
+    padding-left: 0;
+  }
+  .container{
+    margin: 5px;
+    padding:0;
+  }
+}
